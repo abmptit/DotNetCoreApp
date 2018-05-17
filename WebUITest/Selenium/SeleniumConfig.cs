@@ -25,8 +25,8 @@
 
     public static class SeleniumConfig
     {
-        public static string SeleniumHubAddress => ConfigHelper.GetStringValue("Selenium.hub.Address");
-        public static string SeleniumHubPort => ConfigHelper.GetStringValue("Selenium.hub.Port");
+        public static string SeleniumHubAddress => "localhost";
+        public static string SeleniumHubPort => "4444";
 
         public static Uri SeleniumHubEndPoint => new Uri(string.Format("http://{0}:{1}/wd/hub", SeleniumConfig.SeleniumHubAddress, SeleniumConfig.SeleniumHubPort), UriKind.Absolute);
 

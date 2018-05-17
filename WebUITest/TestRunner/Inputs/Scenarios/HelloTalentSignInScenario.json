@@ -1,0 +1,48 @@
+﻿{
+  "Name": "My First Test in Hello Talent",
+  "Description": "This Test ...",
+  "Steps": [
+    {
+      "Name": "CREATE_SESSION",
+      "Description": "This step open the browser"
+    },
+    {
+      "Name": "NAVIGATE_URL",
+      "Param": "#HelloTalent\\helloTalentWelcomePage.Url",
+      "Description": "Navigate to"
+    },
+    {
+      "Name": "CLICK_BUTTON",
+      "Param": "#HelloTalent\\helloTalentWelcomePage.HelloTalentLogo",
+      "Description": "Click on the logo"
+    },
+    {
+      "Name": "CLICK_BUTTON",
+      "Param": "#HelloTalent\\helloTalentWelcomePage.LoginMenuItem",
+      "Description": "Navigate to the login page"
+    },
+    {
+      "Name": "SET_TEXT",
+      "Param": "#HelloTalent\\helloTalentLoginPage.EmailInput",
+      "Description": "Set the user email",
+      "Value": "$Login"
+    },
+    {
+      "Name": "SET_TEXT",
+      "Param": "#HelloTalent\\helloTalentLoginPage.PasswordInput",
+      "Description": "Set the password",
+      "Value": "$Password"
+    },
+    {
+      "Name": "CLICK_BUTTON",
+      "Param": "#HelloTalent\\helloTalentLoginPage.ConnectLogin",
+      "Description": "Click on connect button"
+    },
+    {
+      "Name": "ASSERT_TEXT",
+      "Param": "#HelloTalent\\helloTalentProfilePage.UserMenuItemText",
+      "value": "Ben Miled",
+      "Description": "assert that the text exist and equal to the passed value"
+    }
+  ]
+}

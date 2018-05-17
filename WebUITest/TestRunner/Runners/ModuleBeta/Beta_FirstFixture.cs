@@ -1,4 +1,4 @@
-﻿namespace TestRunner.ModuleBeta
+﻿namespace TestRunner.Runners
 {
     using NUnit.Framework;
 

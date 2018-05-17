@@ -7,15 +7,39 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Sitemap\Others\google.json" />
-    <None Remove="Testbooks\Simple\SearchWithGoogle.json" />
+    <None Remove="Inputs\Contexts\HelloTalentAymenContext.json" />
+    <None Remove="Inputs\Scenarios\HelloTalentSignInScenario.json" />
+    <None Remove="Inputs\Sitemap\HelloTalent\helloTalentLoginPage.json" />
+    <None Remove="Inputs\Sitemap\HelloTalent\helloTalentProfilePage.json" />
+    <None Remove="Inputs\Sitemap\HelloTalent\helloTalentWelcomePage.json" />
+    <None Remove="Inputs\Sitemap\Others\google.json" />
+    <None Remove="Inputs\Testbooks\Simple\SearchWithGoogle.json" />
+    <None Remove="Inputs\Testbooks\WithScenario\HelloTalentConnectAndSearch.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Sitemap\Others\google.json">
+    <Content Include="Inputs\Contexts\HelloTalentAymenContext.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Testbooks\Simple\SearchWithGoogle.json">
+    <Content Include="Inputs\Scenarios\HelloTalentSignInScenario.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\Sitemap\HelloTalent\helloTalentLoginPage.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\Sitemap\HelloTalent\helloTalentProfilePage.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\Sitemap\HelloTalent\helloTalentWelcomePage.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\Sitemap\Others\google.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\Testbooks\Simple\SearchWithGoogle.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\Testbooks\WithScenario\HelloTalentConnectAndSearch.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

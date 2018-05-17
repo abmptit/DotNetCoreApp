@@ -1,4 +1,4 @@
-﻿namespace TestRunner.ModuleAlpha
+﻿namespace TestRunner.Runners
 {
     using NUnit.Framework;
     using Selenium;
@@ -8,25 +8,17 @@
     public class Alpha_FirstFixture
     {
         [Test]
-        public void Alpha_FirstFixture_FirstTest()
+        public void HelloTalentConnectAndSearch()
         {
-            System.Threading.Thread.Sleep(4000);
+            string jsonFile = "Inputs/TestBooks/WithScenario/HelloTalentConnectAndSearch.json";
+            SeleniumLauncher.ExecuteTestFromJson(jsonFile);
         }
 
         [Test]
         public void SearchWithGoogle()
         {
-            string jsonFile = "TestBooks/Simple/SearchWithGoogle.json";
-            string contextFolder = "";
-            string scenarioFolder = "";
-            string sitemapFolder = "Sitemap";
-            SeleniumLauncher.ExecuteTestFromJson(jsonFile, contextFolder, scenarioFolder, sitemapFolder);
-        }
-
-        [Test]
-        public void Alpha_FirstFixture_SecondTest()
-        {
-            System.Threading.Thread.Sleep(8000);
+            string jsonFile = "Inputs/TestBooks/Simple/SearchWithGoogle.json";
+            SeleniumLauncher.ExecuteTestFromJson(jsonFile);
         }
     }
 }

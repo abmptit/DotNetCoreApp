@@ -1,0 +1,18 @@
+﻿{
+  "Name": "My First Test in Hello Talent",
+  "Description": "This Test ...",
+  "Steps": [
+    {
+      "Name": "EXECUTE_SCENARIO",
+      "Param": "HelloTalentSignInScenario",
+      "value": "HelloTalentAymenContext",
+      "Description": "Execute Sign-in Scenario"
+    },
+    {
+      "Name": "ASSERT_TEXT",
+      "Param": "#HelloTalent\\helloTalentProfilePage.UserMenuItemText",
+      "value": "Ben Miled",
+      "Description": "assert that the text exist and equal to the passed value"
+    }
+  ]
+}

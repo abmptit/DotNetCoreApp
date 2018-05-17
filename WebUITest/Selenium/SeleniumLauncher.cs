@@ -43,7 +43,7 @@
             {
                 test.Failed = true;
                 test.StackTrace = ex.Message;
-                throw ex;
+                throw;
             }
             finally
             {
@@ -101,12 +101,8 @@
             }
         }
 
-        public static ITest ExecuteTestFromJson(string jsonFile, string contextFolder, string scenarioFolder, string sitemapFolder)
+        public static ITest ExecuteTestFromJson(string jsonFile)
         {
-            ContextLoader.Instance.ContextFolder = contextFolder;
-            ScenarioLoader.Instance.ScenarioFolder = scenarioFolder;
-            SiteMap.Models.SiteMap.Instance.SiteMapFolder = sitemapFolder;
-
             var test = TestBookHelper.ReadTestFromJson(jsonFile);
             test.ConvertScenarioToElementarySteps(ContextLoader.Instance, ScenarioLoader.Instance);
             test.InsertScreenshotSteps();
@@ -116,6 +112,13 @@
             test.Execute();
             TestBookHelper.SaveTestToJson(test, $"{test.FilePath.Replace(".json", "-result.json")}");
             return (ITest)test;
+        }
+
+        public static void InitializeEnvironment(string contextFolder, string scenarioFolder, string sitemapFolder)
+        {
+            ContextLoader.Instance.ContextFolder = contextFolder;
+            ScenarioLoader.Instance.ScenarioFolder = scenarioFolder;
+            SiteMap.Models.SiteMap.Instance.SiteMapFolder = sitemapFolder;
         }
     }
 }

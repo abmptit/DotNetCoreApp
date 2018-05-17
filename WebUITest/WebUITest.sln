@@ -5,11 +5,13 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestRunner", "TestRunner\TestRunner.csproj", "{4362F69F-2619-4B8F-9449-E39D01C27433}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteMap", "SiteMap\SiteMap.csproj", "{BFC1A686-5628-4623-A633-AA307ED80ED9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteMap", "SiteMap\SiteMap.csproj", "{BFC1A686-5628-4623-A633-AA307ED80ED9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium", "Selenium\Selenium.csproj", "{39F218A9-BBDB-478C-9522-EBA3DFF2B7DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium", "Selenium\Selenium.csproj", "{39F218A9-BBDB-478C-9522-EBA3DFF2B7DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{46E2FCF9-42BB-4A87-942E-6BBDDB52CDCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{46E2FCF9-42BB-4A87-942E-6BBDDB52CDCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testbook", "Testbook\Testbook.csproj", "{31A9C644-EDFE-4630-889D-5159542D959C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,18 @@ Global
 		{46E2FCF9-42BB-4A87-942E-6BBDDB52CDCE}.Release|x64.Build.0 = Release|Any CPU
 		{46E2FCF9-42BB-4A87-942E-6BBDDB52CDCE}.Release|x86.ActiveCfg = Release|Any CPU
 		{46E2FCF9-42BB-4A87-942E-6BBDDB52CDCE}.Release|x86.Build.0 = Release|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Debug|x64.Build.0 = Debug|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Debug|x86.Build.0 = Debug|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Release|x64.ActiveCfg = Release|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Release|x64.Build.0 = Release|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Release|x86.ActiveCfg = Release|Any CPU
+		{31A9C644-EDFE-4630-889D-5159542D959C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

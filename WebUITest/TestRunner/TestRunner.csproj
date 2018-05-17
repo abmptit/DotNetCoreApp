@@ -11,8 +11,4 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="xunit.runner.console" Version="2.3.1" />
-  </ItemGroup>
-
 </Project>

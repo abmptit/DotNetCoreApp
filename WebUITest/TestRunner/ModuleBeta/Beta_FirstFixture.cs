@@ -1,18 +1,18 @@
-﻿namespace TestRunner.ModuleAlpha
+﻿namespace TestRunner.ModuleBeta
 {
     using NUnit.Framework;
 
     [Parallelizable(ParallelScope.All)]
-    public class Alpha_FirstFixture
+    public class Beta_FirstFixture
     {
         [Test]
-        public void Alpha_FirstFixture_FirstTest()
+        public void Beta_FirstFixture_FirstTest()
         {
             System.Threading.Thread.Sleep(4000);
         }
 
         [Test]
-        public void Alpha_FirstFixture_SecondTest()
+        public void Beta_FirstFixture_SecondTest()
         {
             System.Threading.Thread.Sleep(8000);
         }

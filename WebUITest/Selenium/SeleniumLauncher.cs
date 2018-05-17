@@ -2,25 +2,22 @@
 {
     using System;
     using Common.Enums;
+    using Common.Helpers;
     using Common.Models;
     using OpenQA.Selenium;
     using Selenium.Helpers;
+    using Testbook.Helpers;
 
     public static class SeleniumLauncher
     {
-        public static void Toto()
+        public static string CreateJsonSampleTest()
         {
-
+            Test newTest = new Test() { Name = "My First Test", Description = "This Test ..." };
+            Step createSession = new Step() { Name = "CREATE_SESSION", Description = "This step open the browser" };
+            newTest.Steps.Add(createSession);
+            string jsonTest = JsonHelper.SerializeObject(newTest);
+            return jsonTest;
         }
-
-        //public static string CreateJsonSampleTest()
-        //{
-        //    Test newTest = new Test() { Name = "My First Test", Description = "This Test ..." };
-        //    Step createSession = new Step() { Name = "CREATE_SESSION", Description = "This step open the browser" };
-        //    newTest.Steps.Add(createSession);
-        //    string jsonTest = JsonHelper.SerializeObject(newTest);
-        //    return jsonTest;
-        //}
 
         public static void Execute(this Test test)
         {
@@ -51,9 +48,9 @@
             finally
             {
                 test.Measure.EndDate = DateTime.Now;
+                test.WriteJsonReport(SeleniumConfig.ReportLocation);
                 testWebDriver.Close();
             }
-
         }
 
         public static void Execute(this Step step, ref IWebDriver webDriver)
@@ -104,17 +101,21 @@
             }
         }
 
-        //public static ITest ExecuteTestFromJson(string jsonFile)
-        //{
-        //    var test = TestBookHelper.ReadTestFromJson(jsonFile);
-        //    test.ConvertScenarioToElementarySteps();
-        //    test.InsertScreenshotSteps();
-        //    test.ConvertFromPageObject();
-        //    //to use on debug mode only           
-        //    TestBookHelper.SaveTestToJson(test, $"{test.FilePath.Replace(".json", "-conv.json")}");
-        //    test.Execute();
-        //    TestBookHelper.SaveTestToJson(test, $"{test.FilePath.Replace(".json", "-result.json")}");
-        //    return (ITest)test;
-        //}
+        public static ITest ExecuteTestFromJson(string jsonFile, string contextFolder, string scenarioFolder, string sitemapFolder)
+        {
+            ContextLoader.Instance.ContextFolder = contextFolder;
+            ScenarioLoader.Instance.ScenarioFolder = scenarioFolder;
+            SiteMap.Models.SiteMap.Instance.SiteMapFolder = sitemapFolder;
+
+            var test = TestBookHelper.ReadTestFromJson(jsonFile);
+            test.ConvertScenarioToElementarySteps(ContextLoader.Instance, ScenarioLoader.Instance);
+            test.InsertScreenshotSteps();
+            test.ConvertFromPageObject(SiteMap.Models.SiteMap.Instance);
+         
+            TestBookHelper.SaveTestToJson(test, $"{test.FilePath.Replace(".json", "-conv.json")}");
+            test.Execute();
+            TestBookHelper.SaveTestToJson(test, $"{test.FilePath.Replace(".json", "-result.json")}");
+            return (ITest)test;
+        }
     }
 }

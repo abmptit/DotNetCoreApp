@@ -7,9 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Sitemap\Others\google.json" />
+    <None Remove="Testbooks\Simple\SearchWithGoogle.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Sitemap\Others\google.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Testbooks\Simple\SearchWithGoogle.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="nunit" Version="3.10.1" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.6.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Selenium\Selenium.csproj" />
   </ItemGroup>
 
 </Project>

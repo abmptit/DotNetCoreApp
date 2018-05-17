@@ -1,6 +1,7 @@
 ﻿namespace Selenium.Helpers
 {
     using Common.Helpers;
+    using Common.Models;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Remote;
@@ -26,7 +27,7 @@
 
             var projectOutputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             //var chromeDriverPath = Environment.CurrentDirectory + SeleniumConfig.ChromeDriverLocation;
-            var chromeDriverPath = projectOutputDirectory + SeleniumConfig.ChromeDriverLocation;
+            var chromeDriverPath = SeleniumConfig.ChromeDriverLocation;
 
             IWebDriver webDriver = SeleniumConfig.GridEnabled ?
                 new RemoteWebDriver(SeleniumConfig.SeleniumHubEndPoint, desiredCapabilities) :
@@ -73,9 +74,9 @@
 
         public static void TakeScreenshot(this IWebDriver webDriver, string fileName)
         {
-            var projectOutputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var screenshotsLocations = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), SeleniumConfig.ScreenshotLocation);
             var sessionId = ((RemoteWebDriver)webDriver).SessionId;
-            var screenshotFullPath = Path.Combine(projectOutputDirectory, SeleniumConfig.ScreenshotLocation, $"{sessionId}");
+            var screenshotFullPath = Path.Combine(screenshotsLocations, $"{sessionId}");
             var screenshot = ((ITakesScreenshot)webDriver).GetScreenshot();
             var filePath = Path.Combine(screenshotFullPath, fileName);
             var directoryName = Path.GetDirectoryName(filePath);

@@ -1,11 +1,15 @@
 ﻿namespace SiteMap.Models
 {
-    using global::SiteMap.Helpers;
+    using Common.Helpers;
     using System;
     using System.Collections.Generic;
+    using System.IO;
+    using System.Reflection;
 
     public class SiteMap
     {
+        public string SiteMapFolder { get; set; }
+
         private static volatile SiteMap instance;
         private static object syncRoot = new Object();
         private static object syncDic = new Object();
@@ -37,10 +41,21 @@
             {
                 if (!Pages.ContainsKey(pageKey))
                 {
-                    Pages.Add(pageKey, SiteMapHelper.LoadPageFromJson($"{pageKey}.json"));
+                    Pages.Add(pageKey, LoadPageFromJson($"{pageKey}.json"));
                 }
             }
             return Pages[pageKey];
+        }
+
+
+        private Page LoadPageFromJson(string jsonFile)
+        {
+            var projectOutputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var jsonFileAbsolutePath = Path.Combine(
+                projectOutputDirectory,
+                $"{SiteMapFolder}\\{jsonFile}");
+            Page page = JsonHelper.DeserializeObject<Page>(jsonFileAbsolutePath);
+            return page;
         }
 
     }
